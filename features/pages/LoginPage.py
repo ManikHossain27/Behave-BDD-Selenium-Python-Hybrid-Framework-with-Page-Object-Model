@@ -1,7 +1,7 @@
 from selenium.webdriver.common.by import By
 
-from pages.AccountPage import AccountPage
-from pages.BasePage import BasePage
+from features.pages.AccountPage import AccountPage
+from features.pages.BasePage import BasePage
 
 
 class LoginPage(BasePage):
@@ -23,12 +23,5 @@ class LoginPage(BasePage):
         self.click_on_element(self.login_button_css_selector)
         return AccountPage(self.driver)
 
-    def login_to_application(self, email_address_text, password_text):
-        self.enter_email_address(email_address_text)
-        self.enter_password(password_text)
-        return self.click_on_login_button()
-
     def retrieve_warning_message(self):
         return self.get_element_text(self.warning_message_xpath)
-
-

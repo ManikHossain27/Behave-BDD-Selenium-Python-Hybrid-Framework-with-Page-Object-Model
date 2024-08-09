@@ -1,7 +1,7 @@
 from selenium.webdriver.common.by import By
 
-from pages.BasePage import BasePage
-from pages.LogoutPage import LogoutPage
+from features.pages.BasePage import BasePage
+from features.pages.LogoutPage import LogoutPage
 
 
 class AccountPage(BasePage):
