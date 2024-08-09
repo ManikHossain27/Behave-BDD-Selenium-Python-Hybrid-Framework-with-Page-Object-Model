@@ -26,7 +26,7 @@ def step_impl(context):
 
 @then('Proper message should be displayed in Search results')
 def step_impl(context):
-    assert context.search_page.retrieve_no_product_messages()
+    assert context.search_page.retrieve_no_product_message()
 
 
 @when('I don\'t enter anything into Search box field')
