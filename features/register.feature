@@ -4,19 +4,26 @@ Feature: Register Account functionality
     Given I navigate to Register page
 
   Scenario: Register with mandatory fields
-    When I enter detaild into mandatory fields
+    When I enter below details into mandatory fields
+      |first_name |last_name |telephone |password |
+      |Manik      |Hossain   |12345678  |123456   |
+    And I select Privacy Policy option
     And I click on continue button
     Then Account should get created
 
   Scenario: Register with all fields
-    When I enter details into all fields
+    When I enter below details into all fields
+      |first_name |last_name |telephone |password |
+      |Manik      |Hossain   |12345678  |123456   |
     And I select Privacy Policy option
     And I click on continue button
     Then Account should get created
 
   Scenario: Register with duplicate email address
     When I enter details into all fields except email field
-    And I enter existing accounts email into email field
+      |first_name |last_name |telephone |password |
+      |Manik      |Hossain   |12345678  |123456   |
+    And I enter existing accounts email say "kinam@gmail.com" into email field
     And I select Privacy Policy option
     And I click on continue button
     Then Proper warning message information about duplicate account should be displayed

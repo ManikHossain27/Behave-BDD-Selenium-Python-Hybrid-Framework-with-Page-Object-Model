@@ -1,9 +1,9 @@
 from selenium.webdriver.common.by import By
 
-from pages.BasePage import BasePage
-from pages.LoginPage import LoginPage
-from pages.RegisterPage import RegisterPage
-from pages.SearchPage import SearchPage
+from features.pages.BasePage import BasePage
+from features.pages.LoginPage import LoginPage
+from features.pages.RegisterPage import RegisterPage
+from features.pages.SearchPage import SearchPage
 
 
 class HomePage(BasePage):
@@ -41,7 +41,3 @@ class HomePage(BasePage):
     def navigate_to_register_page(self):
         self.click_on_my_account_drop_menu()
         return self.select_register_option()
-
-    def search_a_product(self, product_name):
-        self.enter_product_into_search_box_field(product_name)
-        return self.click_on_search_button()

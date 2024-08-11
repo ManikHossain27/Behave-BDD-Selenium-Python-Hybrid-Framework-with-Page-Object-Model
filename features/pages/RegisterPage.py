@@ -1,7 +1,7 @@
 from selenium.webdriver.common.by import By
 
-from pages.AccountSuccessPage import AccountSuccessPage
-from pages.BasePage import BasePage
+from features.pages.AccountSuccessPage import AccountSuccessPage
+from features.pages.BasePage import BasePage
 
 
 class RegisterPage(BasePage):
@@ -49,22 +49,9 @@ class RegisterPage(BasePage):
     def check_mark_on_privacy_policy(self):
         self.click_on_element(self.privacy_policy_check_box)
 
-    def click_on_submit_button(self):
+    def click_on_continue_button(self):
         self.click_on_element(self.submit_button)
         return AccountSuccessPage(self.driver)
-
-    def register_an_account(self, first_name, last_name, email, telephone, password, con_password, yes_or_no, check_or_uncheck_privacy_policy):
-        self.enter_first_name(first_name)
-        self.enter_last_name(last_name)
-        self.enter_email(email)
-        self.enter_telephone(telephone)
-        self.enter_password(password)
-        self.enter_con_password(con_password)
-        if yes_or_no.__eq__("yes"):
-            self.select_yes_radio_button()
-        if check_or_uncheck_privacy_policy.__eq__("check"):
-            self.check_mark_on_privacy_policy()
-        return self.click_on_submit_button()
 
     def retrieve_duplicate_email_warning(self):
         return self.get_element_text(self.duplicate_email_warning_xpath)
@@ -99,7 +86,7 @@ class RegisterPage(BasePage):
 
         status = False
 
-        if expected_privacy_policy_warning.__contains__(actual_privacy_policy_warning):
+        if expected_privacy_policy_warning.__eq__(actual_privacy_policy_warning):
             if expected_first_name_warning_message.__eq__(actual_first_name_warning_message):
                 if expected_last_name_warning_message.__eq__(actual_last_name_warning_message):
                     if expected_email_warning_message.__eq__(actual_email_warning_message):
