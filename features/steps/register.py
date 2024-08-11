@@ -81,7 +81,7 @@ def step_impl(context):
 
 @then(u'Proper warning message for every mandatory fields should be displayed')
 def step_impl(context):
-    assert context.register_page.verify_all_warnings("Warning: You must agree to the Privacy Policy!123"
+    assert context.register_page.verify_all_warnings("Warning: You must agree to the Privacy Policy!"
                                                      , "First Name must be between 1 and 32 characters!"
                                                      , "Last Name must be between 1 and 32 characters!"
                                                      , "E-Mail Address does not appear to be valid!"
